@@ -9,16 +9,19 @@ module.exports = {
   //param B : integer
   //return an integer
   solve: function (A, B) {
-    let currentNode = A;
-    let list = [],
-      middle = 0,
-      elem = 0;
-    while (currentNode != null) {
-      list.push(currentNode.data);
+    let currentNode = A,
+      len = 0;
+    while (currentNode) {
+      len++;
       currentNode = currentNode.next;
     }
-    middle = Math.floor(list.length / 2);
-
-    return middle - B >= 0 ? list[middle - B] : -1;
+    currentNode = A;
+    if (B > Math.floor(len / 2)) {
+      return -1;
+    }
+    for (let i = 0; i < Math.floor(len / 2) - B; i++) {
+      currentNode = currentNode.next;
+    }
+    return currentNode ? currentNode.data : -1;
   },
 };
