@@ -3,7 +3,7 @@
  * @return {number}
  */
 var firstMissingPositive = function (nums) {
-  let i = 1;
+  var i = 1;
   nums = nums
     .filter((num, index) => num > 0 && nums.indexOf(num) == index)
     .sort((a, b) => a - b);
